@@ -1,4 +1,4 @@
-FROM python:3.11.4-slim-bookworm
+FROM python:3.14-slim-bookworm
 RUN mkdir /hippodb/
 COPY . /hippodb/
 RUN pip install --no-cache-dir /hippodb
@@ -7,9 +7,6 @@ WORKDIR /hippodb/
 EXPOSE 8000/tcp
 VOLUME /data 
 ENV HIPPODB_DIR="/data"
-
-# HEALTHCHECK --interval=1m --timeout=3s \
-#  CMD curl -f http://0.0.0.0/api/ || exit 1
 
 LABEL org.opencontainers.image.source=https://github.com/r2boyo25/hippodb
 LABEL org.opencontainers.image.description="A JSON Document Database written in Python."
